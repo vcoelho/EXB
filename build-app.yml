@@ -1,12 +1,7 @@
 name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
-
 jobs:
   Build-and-Deploy:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest]
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -17,7 +12,7 @@ jobs:
           ARCGIS_LIB_DOWNLOADER_PASSWORD: VCtitanicmay006!
       - name: Unzip Experience Builder
         run: unzip -q arcgis-experience-builder-1.12.zip -d arcgis-experience-builder-1.12
-      - name: Copy Custom Widgets
+      - name: [Copy Custom Widgets]
         run: cp -r widgets/* arcgis-experience-builder-1.12/ArcGISExperienceBuilder/client/your-extensions/widgets
       - name: Create App directory
         run: mkdir public && cd public && mkdir apps && cd apps
@@ -56,5 +51,5 @@ jobs:
       - name: Deploy app zip to GH Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
+          branch: master
           folder: arcgis-experience-builder-1.12/ArcGISExperienceBuilder/app
