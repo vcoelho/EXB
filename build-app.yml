@@ -8,7 +8,7 @@ jobs:
       - name: Download Experience Builder
         run: npx arcgis-lib-downloader -p arcgis-experience-builder -v 1.12 -t Download
         env:
-          ARCGIS_LIB_DOWNLOADER_USERNAME: ${{ secrets.ARCGIS_LIB_DOWNLOADER_USERNAME }}
+          ARCGIS_LIB_DOWNLOADER_USERNAME:  $(ARCGIS_LIB _DOWNLOADER_USERNAME) 
           ARCGIS_LIB_DOWNLOADER_PASSWORD: ${{ secrets.ARCGIS_LIB_DOWNLOADER_PASSWORD }}
       - name: Unzip Experience Builder
         run: unzip -q arcgis-experience-builder-1.12.zip -d arcgis-experience-builder-1.12
